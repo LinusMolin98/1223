@@ -1,32 +1,38 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Battleship Game
 
-Welcome,
+## Overview
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+Welcome to the Battleship game! This simple text-based game allows you to play the classic Battleship game in the terminal. Sink the computer's ships by making strategic guesses, and enjoy the thrill of naval warfare!
 
-## Reminders
+## Purpose
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+The purpose of this Python application is to provide a fun and interactive gaming experience. The Battleship game allows users to engage in a strategic naval battle with the computer, testing their skills in guessing ship locations and sinking the opponent's fleet.
 
-## Creating the Heroku app
+## Value to Users
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+- **Entertainment:** Enjoy a classic board game in a digital format.
+- **Strategic Thinking:** Sharpen your strategic thinking skills by making calculated guesses to sink computer ships.
+- **Terminal-Based Experience:** Play the game directly in the terminal, offering a simple and accessible interface.
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## How to Play
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+1. **Game Setup:**
+   - The game begins by randomly placing a specified number of ships on an 8x8 grid.
+   - Your goal is to guess the coordinates of the computer's ships and sink them all.
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+2. **Making a Guess:**
+   - The game prompts you to enter the row and column coordinates for your guess.
+   - Row and column indices are zero-based, starting from 0.
+   - Input is validated to ensure it falls within the valid range.
 
-Connect your GitHub repository and deploy as normal.
+3. **Game Feedback:**
+   - After each guess, the game provides feedback:
+     - If you hit a ship, it congratulates you and marks the hit on the board.
+     - If you miss, it informs you that you've missed.
+     - If you've already guessed a position, it prompts you to try again.
 
-## Constraints
+4. **Winning the Game:**
+   - The game continues until you sink all the computer's ships.
+   - A victory message is displayed once all ships are successfully sunk.
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
 
----
-
-Happy coding!
