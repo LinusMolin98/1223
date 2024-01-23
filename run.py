@@ -1,11 +1,14 @@
 import random
 
-def print_board(board):
+
+def print_board(board, hide_ships=True):
     for row in board:
-        print(" ".join(row))
+        print(" ".join(['X' if cell == 'S' and hide_ships else cell for cell in row]))
+
 
 def generate_board(size):
     return [['O' for _ in range(size)] for _ in range(size)]
+
 
 def place_ship(board, ship_size):
     while True:
@@ -25,12 +28,12 @@ def place_ship(board, ship_size):
             else:
                 ship_coordinates.append((row + i, col))
 
-        
         valid = all(board[row][col] == 'O' for row, col in ship_coordinates)
         if valid:
             for row, col in ship_coordinates:
                 board[row][col] = 'S'
             break
+
 
 def player_turn(board):
     while True:
@@ -64,6 +67,9 @@ def play_battleship(size, num_ships):
         print_board(player_board)
 
         player_guess = player_turn(player_board)
+        if player_guess is None:
+            break  # User decided to quit the game
+
         result = player_board[player_guess[0]][player_guess[1]]
 
         if result == 'S':
@@ -73,13 +79,13 @@ def play_battleship(size, num_ships):
             print("You've already guessed that one. Try again.")
         else:
             print("Sorry, you missed.")
-
       
         if all('S' not in row for row in player_board):
             print("Congratulations! You sank all the ships. You win!")
             break
 
+
 if __name__ == "__main__":
-    board_size = 8  
+    board_size = 5  
     num_ships = 3  
-    play_battleship(board_size, num_ships)            
+    play_battleship(board_size, num_ships)         
