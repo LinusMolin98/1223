@@ -54,6 +54,7 @@ The purpose of this Python application is to provide a fun and interactive gamin
 ## Credits 
 - This Battleship game is a basic implementation inspired by the classic board game.
 - Developed by [Linus Molin].
+- Inspiration taken from [gbrough] (https://github.com/gbrough/battleship/blob/main/single_player.py)
 
 ## What does the program do? 
 - This Python application is a text-based implementation of the classic Battleship game. Users engage in a strategic naval battle with the computer, making guesses to sink the opponent's fleet. The game offers entertainment and a platform for users to test their strategic thinking skills.
