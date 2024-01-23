@@ -31,3 +31,14 @@ def place_ship(board, ship_size):
             for row, col in ship_coordinates:
                 board[row][col] = 'S'
             break
+def player_turn(board):
+    while True:
+        try:
+            guess_row = int(input("Guess Row (0 to {}): ".format(len(board) - 1)))
+            guess_col = int(input("Guess Col (0 to {}): ".format(len(board) - 1)))
+            if 0 <= guess_row < len(board) and 0 <= guess_col < len(board):
+                return guess_row, guess_col
+            else:
+                print("Invalid input. Please enter valid row and column numbers.")
+        except ValueError:
+            print("Invalid input. Please enter valid integers.")        
