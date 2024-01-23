@@ -6,12 +6,12 @@
 - https://github.com/LinusMolin98/1223
 
 ## Action Testing
-![Action testing step one](screenshots/stepone.png)
-![Action testing step two](screenshots/steptwo.png)
-![Action testing step three](screenshots/stepthree.png)
-![Action testing step four](screenshots/stepfour.png)
-![Action testing step five](screenshots/stepfive.png)
-![Action testing step six](screenshots/stepsix.png)
+![Action testing step one - Getting board visible](screenshots/stepone.png)
+![Action testing step two - Typing Row and Column wich result in a hit](screenshots/steptwo.png)
+![Action testing step three - Doing the same action as before but resulting in a miss](screenshots/stepthree.png)
+![Action testing step four - Hit ship again](screenshots/stepfour.png)
+![Action testing step five - Guessing the same (c,r) as before wich resulted in a error message](screenshots/stepfive.png)
+![Action testing step six - Quitting the game and getting an active response from the system](screenshots/stepsix.png)
 
 ## Code Validation
 ![Code running through validation](screenshots/validating_code.png)
