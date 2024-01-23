@@ -35,4 +35,23 @@ The purpose of this Python application is to provide a fun and interactive gamin
    - The game continues until you sink all the computer's ships.
    - A victory message is displayed once all ships are successfully sunk.
 
+## Additional Notes
+- This version of the game is designed for a simple text-based experience in the terminal.
+- Feel free to explore and enhance the code for additional features or improvements.
 
+## Credits 
+- This Battleship game is a basic implementation inspired by the classic board game.
+- Developed by [Linus Molin].
+
+## What does the program do? 
+- This Python application is a text-based implementation of the classic Battleship game. Users engage in a strategic naval battle with the computer, making guesses to sink the opponent's fleet. The game offers entertainment and a platform for users to test their strategic thinking skills.
+
+## Identifying errors and repairing them
+### Manual Testing Procedures
+- Input Validation: Manually test the game by entering valid and invalid row/column inputs during guesses. Ensure the game handles input errors gracefully.
+- Game Logic: Manually test different scenarios, including hitting ships, missing, and winning the game. Verify that the game provides accurate feedback.
+
+## Library software 
+- This application uses standard Python libraries for basic functionality and does not rely on external libraries for graphical user interfaces. The game is a terminal-based experience, making it easily accessible to users without the need for additional software.
+
+ 
