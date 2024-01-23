@@ -17,6 +17,12 @@
 ## Code Validation
 ![Code running through validation](screenshots/validating_code.png)
 
+## Lighthouse 
+![Code running through lighthouse](screenshots/lighthouse.png)
+
+## Am i Responsive 
+![Code running through Am i Responsive](screenshots/amiresponsive.png)
+
 ## Purpose
 
 The purpose of this Python application is to provide a fun and interactive gaming experience. The Battleship game allows users to engage in a strategic naval battle with the computer, testing their skills in guessing ship locations and sinking the opponent's fleet.
