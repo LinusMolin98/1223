@@ -6,7 +6,7 @@
 - https://github.com/LinusMolin98/1223
 
 ## Action Testing
-
+![Action testing step one](screenshots/stepone.png)
 
 ## Code Validation
 ![Code running through validation](screenshots/validating_code.png)
