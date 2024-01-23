@@ -6,6 +6,9 @@
 - Welcome to the Battleship game! This simple text-based game allows you to play the classic Battleship game in the terminal. Sink the computer's ships by making strategic guesses, and enjoy the thrill of naval warfare!
 - https://github.com/LinusMolin98/1223
 
+## Am i Responsive 
+![Code running through Am i Responsive](screenshots/amiresponsive.png)
+
 ## Action Testing
 ![Action testing step one - Getting board visible](screenshots/stepone.png)
 ![Action testing step two - Typing Row and Column wich result in a hit](screenshots/steptwo.png)
@@ -19,9 +22,6 @@
 
 ## Lighthouse 
 ![Code running through lighthouse](screenshots/lighthouse.png)
-
-## Am i Responsive 
-![Code running through Am i Responsive](screenshots/amiresponsive.png)
 
 ## Purpose
 
