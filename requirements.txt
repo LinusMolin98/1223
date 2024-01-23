@@ -1,1 +1,20 @@
-# Your requirements go here
+
+## Getting Started
+
+1. **Requirements:**
+   - Ensure you have Python installed on your computer.
+
+2. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/LinusMolin98/1223
+   cd battleship-game
+
+3. **Run the Game:**
+message in terminal: python run.py
+Game will start running.
+
+4. **Play the Game**
+- Follow the on-screen instructions to make guesses and enjoy the game.
+
+5. **Customization**
+- You can customize the board size and the number of ships by modifying the board_size and num_ships variables in the script.
