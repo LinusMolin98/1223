@@ -2,7 +2,14 @@
 
 ## Overview
 
-Welcome to the Battleship game! This simple text-based game allows you to play the classic Battleship game in the terminal. Sink the computer's ships by making strategic guesses, and enjoy the thrill of naval warfare!
+- Welcome to the Battleship game! This simple text-based game allows you to play the classic Battleship game in the terminal. Sink the computer's ships by making strategic guesses, and enjoy the thrill of naval warfare!
+- https://github.com/LinusMolin98/1223
+
+## Action Testing
+
+
+## Code Validation
+![Code running through validation](screenshots/validating_code.png)
 
 ## Purpose
 
