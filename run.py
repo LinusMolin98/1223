@@ -62,7 +62,9 @@ def play_battleship(size, num_ships):
     for _ in range(num_ships):
         place_ship(player_board, 3)  
 
-    while True:
+    ships_remaining = num_ships
+
+    while ships_remaining > 0:
         print("Player Board:")
         print_board(player_board)
 
@@ -74,15 +76,19 @@ def play_battleship(size, num_ships):
 
         if result == 'S':
             print("Congratulations! You hit a ship!")
+
+            # Check if the ship is completely sunk
+            if all(cell == 'X' for row in player_board for cell in row if cell == 'S'):
+                print("You sank a ship!")
+                ships_remaining -= 1
             player_board[player_guess[0]][player_guess[1]] = 'X'
         elif result == 'X':
             print("You've already guessed that one. Try again.")
         else:
             print("Sorry, you missed.")
       
-        if all('S' not in row for row in player_board):
-            print("Congratulations! You sank all the ships. You win!")
-            break
+    if ships_remaining == 0:
+        print("Congratulations! You sank all the ships. You win!")
 
 
 if __name__ == "__main__":
