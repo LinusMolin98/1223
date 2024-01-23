@@ -12,7 +12,7 @@
 ![Action testing step three - Doing the same action as before but resulting in a miss](screenshots/stepthree.png)
 ![Action testing step four - Hit ship again](screenshots/stepfour.png)
 ![Action testing step five - Guessing the same (c,r) as before wich resulted in a error message](screenshots/stepfive.png)
-![Action testing step six - Quitting the game and getting an active response from the system](screenshots/stepsix.png)
+![Action testing step six - Quitting the game and getting an active response from the system](screenshots/quittinggame.png)
 
 ## Code Validation
 ![Code running through validation](screenshots/validating_code.png)
