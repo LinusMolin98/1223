@@ -1,4 +1,5 @@
 # Battleship Game
+- Game link (https://battle-ships-linus-2648feb5d4fb.herokuapp.com/)
 
 ## Overview
 
