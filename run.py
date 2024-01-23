@@ -25,7 +25,7 @@ def place_ship(board, ship_size):
             else:
                 ship_coordinates.append((row + i, col))
 
-        # Check if the chosen coordinates are valid
+        
         valid = all(board[row][col] == 'O' for row, col in ship_coordinates)
         if valid:
             for row, col in ship_coordinates:
@@ -35,20 +35,29 @@ def place_ship(board, ship_size):
 def player_turn(board):
     while True:
         try:
-            guess_row = int(input("Guess Row (0 to {}): ".format(len(board) - 1)))
-            guess_col = int(input("Guess Col (0 to {}): ".format(len(board) - 1)))
+            user_input = input("Enter 'quit' to end the game.\nGuess Row (0 to {}): ".format(len(board) - 1))
+            if user_input.lower() == 'quit':
+                return None  
+            guess_row = int(user_input)
+            
+            user_input = input("Enter 'quit' to end the game.\nGuess Col (0 to {}): ".format(len(board) - 1))
+            if user_input.lower() == 'quit':
+                return None  
+            guess_col = int(user_input)
+            
             if 0 <= guess_row < len(board) and 0 <= guess_col < len(board):
                 return guess_row, guess_col
             else:
                 print("Invalid input. Please enter valid row and column numbers.")
         except ValueError:
-            print("Invalid input. Please enter valid integers.")        
+            print("Invalid input. Please enter valid integers.")
+
 
 def play_battleship(size, num_ships):
     player_board = generate_board(size)
 
     for _ in range(num_ships):
-        place_ship(player_board, 3)  # You can change the ship size as per your preference
+        place_ship(player_board, 3)  
 
     while True:
         print("Player Board:")
@@ -65,12 +74,12 @@ def play_battleship(size, num_ships):
         else:
             print("Sorry, you missed.")
 
-        # Check if all ships are sunk
+      
         if all('S' not in row for row in player_board):
             print("Congratulations! You sank all the ships. You win!")
             break
 
 if __name__ == "__main__":
     board_size = 8  
-    num_ships = 3   # You can change the number of ships as per your preference
+    num_ships = 3  
     play_battleship(board_size, num_ships)            
