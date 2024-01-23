@@ -47,6 +47,16 @@ The purpose of this Python application is to provide a fun and interactive gamin
    - The game continues until you sink all the computer's ships.
    - A victory message is displayed once all ships are successfully sunk.
 
+## Getting Started
+
+1. **Requirements:**
+   - Ensure you have Python installed on your computer.
+
+2. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/your-username/battleship-game.git
+   cd battleship-game   
+
 ## Additional Notes
 - This version of the game is designed for a simple text-based experience in the terminal.
 - Feel free to explore and enhance the code for additional features or improvements.
