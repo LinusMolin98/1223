@@ -7,6 +7,11 @@
 
 ## Action Testing
 ![Action testing step one](screenshots/stepone.png)
+![Action testing step two](screenshots/steptwo.png)
+![Action testing step three](screenshots/stepthree.png)
+![Action testing step four](screenshots/stepfour.png)
+![Action testing step five](screenshots/stepfive.png)
+![Action testing step six](screenshots/stepsix.png)
 
 ## Code Validation
 ![Code running through validation](screenshots/validating_code.png)
