@@ -61,40 +61,32 @@ def player_turn(board, previous_guesses):
 
 def play_battleship(size, num_ships):
     player_board = generate_board(size)
+    previous_guesses = set()
 
     for _ in range(num_ships):
-        place_ship(player_board, 3)  
+        place_ship(player_board, 3)
 
     ships_remaining = num_ships
 
     while ships_remaining > 0:
         print("Player Board:")
         print_board(player_board)
-
-        player_guess = player_turn(player_board)
+        
+        player_guess = player_turn(player_board, previous_guesses)
         if player_guess is None:
-            break  # User decided to quit the game
+            print("Game ended by player.")
+            break
 
         result = player_board[player_guess[0]][player_guess[1]]
 
         if result == 'S':
-            print("Congratulations! You hit a ship!")
-
-            # Check if the ship is completely sunk
-            if all(cell == 'X' for row in player_board for cell in row if cell == 'S'):
-                print("You sank a ship!")
-                ships_remaining -= 1
+            print("Hit!")
             player_board[player_guess[0]][player_guess[1]] = 'X'
+            # Additional logic needed here to check if a ship is completely sunk
         elif result == 'X':
-            print("You've already guessed that one. Try again.")
+            print("You've already hit this spot.")
         else:
-            print("Sorry, you missed.")
+            print("Miss.")
       
     if ships_remaining == 0:
-        print("Congratulations! You sank all the ships. You win!")
-
-
-if __name__ == "__main__":
-    board_size = 5  
-    num_ships = 3  
-    play_battleship(board_size, num_ships)         
+        print("All ships sunk! You win!")        
