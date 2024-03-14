@@ -43,28 +43,34 @@ def place_ship(board, ship_size):
             break
 
 
-def player_turn(board, previous_guesses):
+def player_turn(board, previous_guesses, size):
     while True:
         try:
-            row_input = input("Enter 'quit' to end the game, or guess Row (0 to {}): ".format(len(board) - 1))
-            if row_input.lower() == 'quit':
+            user_input = input("Enter row and column numbers, or type 'help' or 'quit': ")
+            if user_input.lower() == 'quit':
                 return None
-            guess_row = int(row_input)
+            elif user_input.lower() == 'help':
+                print_instructions(size)
+                continue  # Show instructions and prompt for input again
 
-            col_input = input("Guess Col (0 to {}): ".format(len(board) - 1))
-            guess_col = int(col_input)
+            # Split the input by any space to separate row and col inputs
+            inputs = user_input.split()
+            if len(inputs) != 2:
+                raise ValueError("Please enter both a row and a column number.")
+
+            guess_row, guess_col = int(inputs[0]), int(inputs[1])
 
             if (guess_row, guess_col) in previous_guesses:
                 print("You've already guessed that! Try a different spot.")
                 continue
 
             if 0 <= guess_row < len(board) and 0 <= guess_col < len(board):
-                previous_guesses.add((guess_row, guess_col))  # Add guess to set of previous guesses
+                previous_guesses.add((guess_row, guess_col))
                 return guess_row, guess_col
             else:
                 print("Out of bounds! Please guess within the board.")
         except ValueError:
-            print("Invalid input! Please enter a number.")
+            print("Invalid input! Please enter two numbers (row col), 'help', or 'quit'.")
 
 
 def play_battleship(size, num_ships):
