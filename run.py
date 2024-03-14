@@ -2,6 +2,14 @@ import random
 
 
 def print_board(board, hide_ships=True):
+    """
+    Prints the game board to the console.
+
+    Args:
+    board: The game board, a list of lists containing 'O' for open water,
+           'S' for ships, and 'X' for hits.
+    hide_ships: Whether ships ('S') should be hidden and displayed as 'O'.
+    """
     for row in board:
         print(" ".join(['X' if cell == 'S' and hide_ships else cell for cell in row]))
 
