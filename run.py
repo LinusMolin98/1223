@@ -35,25 +35,28 @@ def place_ship(board, ship_size):
             break
 
 
-def player_turn(board):
+def player_turn(board, previous_guesses):
     while True:
         try:
-            user_input = input("Enter 'quit' to end the game.\nGuess Row (0 to {}): ".format(len(board) - 1))
-            if user_input.lower() == 'quit':
-                return None  
-            guess_row = int(user_input)
-            
-            user_input = input("Enter 'quit' to end the game.\nGuess Col (0 to {}): ".format(len(board) - 1))
-            if user_input.lower() == 'quit':
-                return None  
-            guess_col = int(user_input)
-            
+            row_input = input("Enter 'quit' to end the game, or guess Row (0 to {}): ".format(len(board) - 1))
+            if row_input.lower() == 'quit':
+                return None
+            guess_row = int(row_input)
+
+            col_input = input("Guess Col (0 to {}): ".format(len(board) - 1))
+            guess_col = int(col_input)
+
+            if (guess_row, guess_col) in previous_guesses:
+                print("You've already guessed that! Try a different spot.")
+                continue
+
             if 0 <= guess_row < len(board) and 0 <= guess_col < len(board):
+                previous_guesses.add((guess_row, guess_col))  # Add guess to set of previous guesses
                 return guess_row, guess_col
             else:
-                print("Invalid input. Please enter valid row and column numbers.")
+                print("Out of bounds! Please guess within the board.")
         except ValueError:
-            print("Invalid input. Please enter valid integers.")
+            print("Invalid input! Please enter a number.")
 
 
 def play_battleship(size, num_ships):
