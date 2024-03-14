@@ -74,6 +74,7 @@ def player_turn(board, previous_guesses, size):
 
 
 def play_battleship(size, num_ships):
+    print_instructions(size)
     player_board = generate_board(size)
     previous_guesses = set()
 
