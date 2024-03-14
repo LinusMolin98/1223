@@ -72,6 +72,18 @@ def player_turn(board, previous_guesses, size):
         except ValueError:
             print("Invalid input! Please enter two numbers (row col), 'help', or 'quit'.")
 
+def print_instructions(size):
+    print("\nWelcome to Battleship!")
+    print("The goal is to sink all the enemy's ships.")
+    print("\nInstructions:")
+    print("- The game board is a {}x{} grid.".format(size, size))
+    print("- Enter row and column numbers to guess where the enemy ships are hidden.")
+    print("- If you hit all parts of a ship, it's considered sunk.")
+    print("- Repeat until you have sunk all the enemy's ships to win.")
+    print("\nCommands:")
+    print("- Enter 'quit' during your turn to exit the game.")
+    print("- Enter 'help' during your turn to see these instructions again.\n")            
+
 
 def play_battleship(size, num_ships):
     print_instructions(size)
@@ -104,4 +116,9 @@ def play_battleship(size, num_ships):
             print("Miss.")
       
     if ships_remaining == 0:
-        print("All ships sunk! You win!")        
+        print("All ships sunk! You win!")    
+
+    if __name__ == "__main__":
+    board_size = 5  # Example size, adjust as needed
+    num_ships = 3  # Example number of ships, adjust as needed
+    play_battleship(board_size, num_ships)        
