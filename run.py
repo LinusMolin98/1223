@@ -118,7 +118,4 @@ def play_battleship(size, num_ships):
     if ships_remaining == 0:
         print("All ships sunk! You win!")    
 
-    if __name__ == "__main__":
-    board_size = 5  # Example size, adjust as needed
-    num_ships = 3  # Example number of ships, adjust as needed
-    play_battleship(board_size, num_ships)        
+   
