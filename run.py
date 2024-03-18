@@ -91,9 +91,10 @@ def play_battleship(size, num_ships):
     print_instructions(size)
     player_board = generate_board(size)
     previous_guesses = set()
+    ships = []  # List to track ships
 
     for _ in range(num_ships):
-        place_ship(player_board, 3)
+        place_ship(player_board, 3, ships)
 
     ships_remaining = num_ships
 
