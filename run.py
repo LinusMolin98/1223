@@ -47,6 +47,23 @@ def place_ship(board, ship_size, ships):
                 board[r][c] = 'S'
             ships.append({'coordinates': ship_coordinates, 'hits': set()})
             break
+def check_for_sunken_ships(player_guess, ships):
+    guess_row, guess_col = player_guess
+    for ship in ships:
+        if (guess_row, guess_col) in ship['coordinates']:
+            ship['hits'].add((guess_row, guess_col))
+            if ship['hits'] == ship['coordinates']:
+                return True  # Ship is sunk
+    return False
+
+# Inside the game loop where a hit is detected:
+if result == 'S':
+    print(f"{Fore.GREEN}Hit! You've hit a ship!")
+    player_board[player_guess[0]][player_guess[1]] = 'X'
+    if check_for_sunken_ships(player_guess, ships):
+        print(f"{Fore.YELLOW}You've sunk a ship!")
+        ships_remaining -= 1
+
 def player_turn(board, previous_guesses, size):
     while True:
         try:
