@@ -129,6 +129,20 @@ def play_battleship(size, num_ships):
         if result == 'S':
             print(f"{Fore.GREEN}Hit! You've hit a ship!")
             player_board[player_guess[0]][player_guess[1]] = 'X'
-            # Additional logic needed here to check if a ship is completely sunk
+            if check_for_sunken_ships(player_guess, ships):
+                print(f"{Fore.YELLOW}You've sunk a ship!")
+                ships_remaining -= 1
+        elif result == 'X':
+            print(f"{Fore.YELLOW}You've already hit this spot.")
+        else:
+            print(f"{Fore.CYAN}Miss.")
+
+        if ships_remaining == 0:
+            print(f"{Fore.GREEN}All ships sunk! You win!")
+
+if __name__ == "__main__":
+    board_size = 5  # Example size, adjust as needed
+    num_ships = 3  # Example number of ships, adjust as needed
+    play_battleship(board_size, num_ships)
 
    
