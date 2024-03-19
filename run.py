@@ -49,8 +49,7 @@ def place_ship(board, ship_size, ships):
 if all(board[r][c] == 'O' for r, c in ship_coordinates):
     for r, c in ship_coordinates:
         board[r][c] = 'S'
-    ships.append({'coordinates': ship_coordinates, 'hits': set()})
-break
+    ships.append({'coordinates': ship_coordinates, 'hits': set()}) break
 
 
 
