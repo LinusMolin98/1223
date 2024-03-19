@@ -90,8 +90,7 @@ def player_turn(board, previous_guesses, size):
                 continue
 
             guess_row, guess_col = map(int, user_input.split())
-            if (guess_row, guess_col) in previous_guesses or not
-    (0 <= guess_row < size and 0 <= guess_col < size):
+            if (guess_row, guess_col) in previous_guesses or not (0 <= guess_row < size and 0 <= guess_col < size):
                 print
 (f"{Fore.YELLOW}Invalid guess or already guessed. Try again.")
                 continue
