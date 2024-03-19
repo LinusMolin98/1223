@@ -6,15 +6,18 @@ init(autoreset=True)  # Initialize Colorama for colored output
 def print_board(board, hide_ships=True):
     """
     Prints the game board to the console with ASCII art and color enhancements.
+    
+    Parameters:
+    - board: The game board, a 2D list representing the grid.
+    - hide_ships: Boolean indicating whether to hide ships on the board.
     """
     for row in board:
-        row_str = " ".join([
+        print(" ".join([
             f"{Fore.BLUE}≈" if cell == 'O' else
             f"{Fore.RED}╳" if cell == 'X' else
             f"{Fore.GREEN}□" if not hide_ships and cell == 'S' else
             f"{Fore.BLUE}≈" for cell in row
-        ])
-        print(row_str)
+        ]))
 
 def generate_board(size):
     """
