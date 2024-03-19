@@ -82,8 +82,7 @@ def player_turn(board, previous_guesses, size):
     """
     while True:
         try:
-            user_input = 
-input("Enter row and column numbers, or type 'help' or 'quit': ").lower()
+            user_input = input("Enter row and column numbers, or type 'help' or 'quit': ").lower()
             if user_input == 'quit':
                 return None
             if user_input == 'help':
