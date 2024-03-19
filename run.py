@@ -106,12 +106,7 @@ def player_turn(board, previous_guesses, size):
             print(f"{Fore.RED}Invalid input. Please enter row and column numbers separated by a space.")
 
 def print_instructions(size):
-   """
-    Prints the enhanced game instructions to the console.
-    
-    Parameters:
-    - size: Integer, the size of the board.
-    """
+    """Prints the enhanced game instructions to the console."""
     print(f"\n{Fore.CYAN}Welcome to Battleship!")
     print("Objective:")
     print("  Your goal is to sink all hidden ships on the board by guessing their locations.\n")
