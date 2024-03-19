@@ -33,14 +33,19 @@ def generate_board(size):
 
 def place_ship(board, ship_size, ships):
     """
-    Places a ship of the specified size on the board at a random location.
+    Places a ship of the specified size on the board at a random location without overlap.
+    
+    Parameters:
+    - board: The game board, a 2D list.
+    - ship_size: Integer, the size of the ship to place.
+    - ships: A list of dictionaries, each representing a ship with its coordinates and hits.
     """
     while True:
         orientation = random.choice(['horizontal', 'vertical'])
         if orientation == 'horizontal':
             row = random.randint(0, len(board) - 1)
             col = random.randint(0, len(board[0]) - ship_size)
-        else:  # vertical
+        else:
             row = random.randint(0, len(board) - ship_size)
             col = random.randint(0, len(board[0]) - 1)
         ship_coordinates = {(row, col + i) if orientation == 'horizontal' else (row + i, col) for i in range(ship_size)}
@@ -50,7 +55,6 @@ def place_ship(board, ship_size, ships):
                 board[r][c] = 'S'
             ships.append({'coordinates': ship_coordinates, 'hits': set()})
             break
-
 def check_for_sunken_ships(player_guess, ships):
     """
     Checks if a hit results in a sunken ship and updates the ships list.
