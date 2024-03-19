@@ -63,10 +63,39 @@ The Battleship Game is a digital version of the classic board game, allowing pla
 ![Quit](screenshots/quit.png)
 
 
-## UX
-### User Stories
-- As a **player**, I want to **easily understand how to start a game** so that **I can begin playing with minimal setup**.
-- As a **player**, I want to **receive feedback on my guesses** so that **I can adjust my strategy accordingly**.
+## Development Process: The 5 UX Design Elements
+
+### Strategy
+My goal was to recreate the classic Battleship game experience in a digital format, targeting users looking for a quick, strategic play accessible on modern devices. User needs for simplicity, challenge, and nostalgia was what sparked this idea.
+
+### Scope
+The scoped features for the Battleship game included:
+- An intuitive UI for game setup and gameplay.
+- Single-player mode.
+- Randomized ship placement.
+- Basic visual to enhance engagement.
+
+### Structure
+The game structure is designed to be linear and user-friendly, with a clear path from setup to gameplay:
+1. Selection of game mode (single player).
+2. Simple board setup (ship placement).
+3. Effective gameplay.
+4. Results display with options to replay or exit.
+
+This approach ensures a fluid experience for both new and seasoned players.
+
+### Skeleton
+During the skeleton phase, i focused on minimizing user input for actions and providing clear and simple feedback from the game. Key considerations included:
+- Simplifying guess inputs.
+- Clear display of hits, misses, and the game status.
+- Responsive design for various devices and screen sizes.
+
+### Surface
+The surface design combines the classic aesthetic of the original board game with modern touches:
+- A monochromatic color scheme with strategic accents focuses the player's attention.
+- Use of ASCII art for ships and grids maintains a text-based interface for broad accessibility.
+
+Through careful attention to these 5 UX design elements, we crafted a simple but fun Battleships game that honors its classic roots while meeting contemporary expectations.
 
 ### Design
 - **Color Scheme**: The game uses a simple color scheme with blue for the ocean, red for hits, and green for ships to make the game intuitive and visually appealing.
