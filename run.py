@@ -87,7 +87,6 @@ def print_instructions(size):
     print(f"  The board is a grid of size {size}x{size}. Here's what the symbols mean:")
     print(f"    {Fore.BLUE}≈ : Water (unexplored territory)")
     print(f"    {Fore.RED}╳ : Hit (part of a ship you've successfully targeted)")
-    print(f"    {Fore.GREEN}□ : Ship (visible only in this instruction mode)")
     print(f"    {Fore.CYAN}~ : Miss (an unsuccessful guess)\n")
     print("Commands:")
     print("  - 'quit' to exit the game.")
