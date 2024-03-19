@@ -78,16 +78,25 @@ def player_turn(board, previous_guesses, size):
 
 def print_instructions(size):
     """
-    Prints the game instructions to the console.
+    Prints the enhanced game instructions to the console.
     """
-    print("\nWelcome to Battleship!")
-    print(f"The game board is a {size}x{size} grid.")
-    print("Enter row and column numbers to guess where the enemy ships are hidden.")
-    print("If you hit all parts of a ship, it's considered sunk.")
-    print("Repeat until you have sunk all the enemy's ships to win.")
-    print("\nCommands:")
-    print("- Enter 'quit' during your turn to exit the game.")
-    print("- Enter 'help' during your turn to see these instructions again.\n")
+    print(f"\n{Fore.CYAN}Welcome to Battleship!")
+    print("Objective:")
+    print("  Your goal is to sink all hidden ships on the board by guessing their locations.\n")
+    print("Game Board:")
+    print(f"  The board is a grid of size {size}x{size}. Here's what the symbols mean:")
+    print(f"    {Fore.BLUE}≈ : Water (unexplored territory)")
+    print(f"    {Fore.RED}╳ : Hit (part of a ship you've successfully targeted)")
+    print(f"    {Fore.GREEN}□ : Ship (visible only in this instruction mode)")
+    print(f"    {Fore.CYAN}~ : Miss (an unsuccessful guess)\n")
+    print("Commands:")
+    print("  - 'quit' to exit the game.")
+    print("  - 'help' to display these instructions again.\n")
+    print("Tips:")
+    print("  - Ships can be oriented horizontally or vertically.")
+    print("  - Try spreading out your guesses to discover the general location of a ship.\n")
+    print(f"{Fore.YELLOW}Ready to play? Make your first guess by entering row and column numbers (e.g., '0 3').")
+    print(f"{Fore.YELLOW}Good luck, captain!\n")
 
 def print_victory():
     """
