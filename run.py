@@ -55,9 +55,17 @@ def place_ship(board, ship_size, ships):
                 board[r][c] = 'S'
             ships.append({'coordinates': ship_coordinates, 'hits': set()})
             break
+
 def check_for_sunken_ships(player_guess, ships):
     """
-    Checks if a hit results in a sunken ship and updates the ships list.
+    Checks if a hit results in a sunken ship and updates the ships list accordingly.
+    
+    Parameters:
+    - player_guess: A tuple (row, col) representing the player's guess coordinates.
+    - ships: A list of dictionaries, each representing a ship with its coordinates and hits.
+    
+    Returns:
+    - True if the hit sunk a ship, False otherwise.
     """
     for ship in ships:
         if player_guess in ship['coordinates']:
