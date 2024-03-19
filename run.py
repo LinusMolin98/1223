@@ -127,8 +127,7 @@ def print_victory():
     """
     Prints a victory message with ASCII art.
     """
-    victory_art = 
-f"{Fore.GREEN}Congratulations! You've sunk all the ships and won the game!"
+    victory_art = f"{Fore.GREEN}Congratulations! You've sunk all the ships and won the game!"
     print(victory_art)
 
 
