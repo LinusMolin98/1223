@@ -42,15 +42,18 @@ def place_ship(board, ship_size, ships):
         else:
             row = random.randint(0, len(board) - ship_size)
             col = random.randint(0, len(board[0]) - 1)
+        
         ship_coordinates = {
-    (row, col + i) if orientation == 'horizontal' else (row + i, col)
-    for i in range(ship_size)
-}
-if all(board[r][c] == 'O' for r, c in ship_coordinates):
-    for r, c in ship_coordinates:
-        board[r][c] = 'S'
-    ships.append({'coordinates': ship_coordinates, 'hits': set()}) 
-    break
+            (row, col + i) if orientation == 'horizontal' else (row + i, col)
+            for i in range(ship_size)
+        }
+
+        if all(board[r][c] == 'O' for r, c in ship_coordinates):
+            for r, c in ship_coordinates:
+                board[r][c] = 'S'
+            ships.append({'coordinates': ship_coordinates, 'hits': set()})
+            break
+
 
 
 
