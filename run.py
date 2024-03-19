@@ -1,12 +1,13 @@
 import random
 from colorama import init, Fore
 
-init(autoreset=True)  # Initialize Colorama for colored output
+init(autoreset = True)  # Initialize Colorama for colored output
 
-def print_board(board, hide_ships=True):
-    """
-    Prints the game board to the console with ASCII art and color enhancements.
-    
+
+
+def print_board(board, hide_ships = True):
+"""
+Prints the game board to the console with ASCII art and color enhancements.    
     Parameters:
     - board: The game board, a 2D list representing the grid.
     - hide_ships: Boolean indicating whether to hide ships on the board.
@@ -19,13 +20,13 @@ def print_board(board, hide_ships=True):
             f"{Fore.BLUE}≈" for cell in row
         ]))
 
+
+
 def generate_board(size):
     """
-    Generates a square game board of the given size initialized with 'O' for open water.
-    
+    Generates a game board.
     Parameters:
     - size: Integer, the size of the board (size x size).
-    
     Returns:
     - A 2D list representing the game board.
     """
@@ -33,12 +34,11 @@ def generate_board(size):
 
 def place_ship(board, ship_size, ships):
     """
-    Places a ship of the specified size on the board at a random location without overlap.
-    
+    Places a ship of the specified size on the board.
     Parameters:
     - board: The game board, a 2D list.
     - ship_size: Integer, the size of the ship to place.
-    - ships: A list of dictionaries, each representing a ship with its coordinates and hits.
+    - ships: A list of dictionaries, each representing a ship.
     """
     while True:
         orientation = random.choice(['horizontal', 'vertical'])
@@ -48,22 +48,24 @@ def place_ship(board, ship_size, ships):
         else:
             row = random.randint(0, len(board) - ship_size)
             col = random.randint(0, len(board[0]) - 1)
-        ship_coordinates = {(row, col + i) if orientation == 'horizontal' else (row + i, col) for i in range(ship_size)}
-        
-        if all(board[r][c] == 'O' for r, c in ship_coordinates):
-            for r, c in ship_coordinates:
-                board[r][c] = 'S'
-            ships.append({'coordinates': ship_coordinates, 'hits': set()})
-            break
+        ship_coordinates = {
+    (row, col + i) if orientation == 'horizontal' else (row + i, col)
+    for i in range(ship_size)
+}
+if all(board[r][c] == 'O' for r, c in ship_coordinates):
+    for r, c in ship_coordinates:
+        board[r][c] = 'S'
+    ships.append({'coordinates': ship_coordinates, 'hits': set()})
+    break
+
+
 
 def check_for_sunken_ships(player_guess, ships):
     """
-    Checks if a hit results in a sunken ship and updates the ships list accordingly.
-    
+    Checks if a hit results in a sunken ship.
     Parameters:
-    - player_guess: A tuple (row, col) representing the player's guess coordinates.
-    - ships: A list of dictionaries, each representing a ship with its coordinates and hits.
-    
+    - player_guess: A tuple (row, col) representing the guess.
+    - ships: A list of dictionaries, each representing a ship.
     Returns:
     - True if the hit sunk a ship, False otherwise.
     """
@@ -77,18 +79,17 @@ def check_for_sunken_ships(player_guess, ships):
 def player_turn(board, previous_guesses, size):
     """
     Manages the player's turn, including input validation and tracking guesses.
-    
     Parameters:
     - board: The game board, a 2D list.
     - previous_guesses: A set of tuples representing previously made guesses.
     - size: Integer, the size of the board.
-    
     Returns:
-    - A tuple representing the player's guess (row, col), or None if the player quits.
+    - A tuple representing the player's guess (row, col).
     """
     while True:
         try:
-            user_input = input("Enter row and column numbers, or type 'help' or 'quit': ").lower()
+            user_input = 
+input("Enter row and column numbers, or type 'help' or 'quit': ").lower()
             if user_input == 'quit':
                 return None
             if user_input == 'help':
@@ -96,40 +97,51 @@ def player_turn(board, previous_guesses, size):
                 continue
 
             guess_row, guess_col = map(int, user_input.split())
-            if (guess_row, guess_col) in previous_guesses or not (0 <= guess_row < size and 0 <= guess_col < size):
-                print(f"{Fore.YELLOW}Invalid guess or already guessed. Try again.")
+            if (guess_row, guess_col) in previous_guesses or not
+    (0 <= guess_row < size and 0 <= guess_col < size):
+                print
+(f"{Fore.YELLOW}Invalid guess or already guessed. Try again.")
                 continue
 
             previous_guesses.add((guess_row, guess_col))
             return guess_row, guess_col
         except ValueError:
-            print(f"{Fore.RED}Invalid input. Please enter row and column numbers separated by a space.")
+            print(f"{Fore.RED}Invalid input. 
+Please enter row and column numbers separated by a space.")
+
 
 def print_instructions(size):
-    """Prints the enhanced game instructions to the console."""
     print(f"\n{Fore.CYAN}Welcome to Battleship!")
     print("Objective:")
-    print("  Your goal is to sink all hidden ships on the board by guessing their locations.\n")
+    print("  Your goal is to sink all hidden ships on the board "
+    "by guessing their locations.\n")
     print("Game Board:")
-    print(f"  The board is a grid of size {size}x{size}. Here's what the symbols mean:")
+    print(f"  The board is a grid of size {size}x{size}. "
+    "Here's what the symbols mean:")
     print(f"    {Fore.BLUE}≈ : Water (unexplored territory)")
-    print(f"    {Fore.RED}╳ : Hit (part of a ship you've successfully targeted)")
+    print(f"    {Fore.RED}╳ : Hit (part of a ship you've "
+    "successfully targeted)")
     print(f"    {Fore.CYAN}~ : Miss (an unsuccessful guess)\n")
     print("Commands:")
     print("  - 'quit' to exit the game.")
     print("  - 'help' to display these instructions again.\n")
     print("Tips:")
     print("  - Ships can be oriented horizontally or vertically.")
-    print("  - Try spreading out your guesses to discover the general location of a ship.\n")
-    print(f"{Fore.YELLOW}Ready to play? Make your first guess by entering row and column numbers (e.g., '0 3').")
+    print("  - Try spreading out your guesses to discover the "
+    "general location of a ship.\n")
+    print(f"{Fore.YELLOW}Ready to play? Make your first guess by "
+    "entering row and column numbers (e.g., '0 3').")
     print(f"{Fore.YELLOW}Good luck, captain!\n")
 
 def print_victory():
     """
     Prints a victory message with ASCII art.
     """
-    victory_art = f"{Fore.GREEN}Congratulations! You've sunk all the ships and won the game!"
+    victory_art = 
+f"{Fore.GREEN}Congratulations! You've sunk all the ships and won the game!"
     print(victory_art)
+
+
 
 def play_battleship(size, num_ships):
     """
@@ -147,8 +159,7 @@ def play_battleship(size, num_ships):
 
     while ships_remaining > 0:
         print("Player Board:")
-        print_board(player_board, hide_ships=True)
-        
+        print_board(player_board, hide_ships = True)
         player_guess = player_turn(player_board, previous_guesses, size)
         if player_guess is None:
             print(f"{Fore.LIGHTRED_EX}Game ended by player.")
@@ -176,7 +187,7 @@ def play_battleship(size, num_ships):
 if __name__ == "__main__":
     board_size = 5  # Define the size of the game board
     num_ships = 3   # Define the number of ships
-    play_battleship(board_size, num_ships)
+    play_battleship(board_size, num_ships) 
 
 
 
