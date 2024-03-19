@@ -77,6 +77,14 @@ def check_for_sunken_ships(player_guess, ships):
 def player_turn(board, previous_guesses, size):
     """
     Manages the player's turn, including input validation and tracking guesses.
+    
+    Parameters:
+    - board: The game board, a 2D list.
+    - previous_guesses: A set of tuples representing previously made guesses.
+    - size: Integer, the size of the board.
+    
+    Returns:
+    - A tuple representing the player's guess (row, col), or None if the player quits.
     """
     while True:
         try:
