@@ -5,13 +5,16 @@ init(autoreset=True)  # Initialize Colorama for colored output
 
 def print_board(board, hide_ships=True):
     """
-    Prints the game board to the console with optional hiding of ships.
+    Prints the game board to the console with ASCII art and color enhancements.
     """
     for row in board:
-        print(" ".join([f"{Fore.BLUE}O" if cell == 'O' else
-                        f"{Fore.RED}X" if cell == 'X' else
-                        f"{Fore.GREEN}S" if not hide_ships and cell == 'S' else
-                        f"{Fore.BLUE}O" for cell in row]))
+        row_str = " ".join([
+            f"{Fore.BLUE}≈" if cell == 'O' else
+            f"{Fore.RED}╳" if cell == 'X' else
+            f"{Fore.GREEN}□" if not hide_ships and cell == 'S' else
+            f"{Fore.BLUE}≈" for cell in row
+        ])
+        print(row_str)
 
 def generate_board(size):
     """
@@ -28,12 +31,11 @@ def place_ship(board, ship_size, ships):
         if orientation == 'horizontal':
             row = random.randint(0, len(board) - 1)
             col = random.randint(0, len(board[0]) - ship_size)
-            ship_coordinates = {(row, col + i) for i in range(ship_size)}
         else:  # vertical
             row = random.randint(0, len(board) - ship_size)
             col = random.randint(0, len(board[0]) - 1)
-            ship_coordinates = {(row + i, col) for i in range(ship_size)}
-
+        ship_coordinates = {(row, col + i) if orientation == 'horizontal' else (row + i, col) for i in range(ship_size)}
+        
         if all(board[r][c] == 'O' for r, c in ship_coordinates):
             for r, c in ship_coordinates:
                 board[r][c] = 'S'
@@ -87,6 +89,13 @@ def print_instructions(size):
     print("- Enter 'quit' during your turn to exit the game.")
     print("- Enter 'help' during your turn to see these instructions again.\n")
 
+def print_victory():
+    """
+    Prints a victory message with ASCII art.
+    """
+    victory_art = f"{Fore.GREEN}Congratulations! You've sunk all the ships and won the game!"
+    print(victory_art)
+
 def play_battleship(size, num_ships):
     """
     Main function to setup and play the Battleship game.
@@ -104,34 +113,8 @@ def play_battleship(size, num_ships):
     while ships_remaining > 0:
         print("Player Board:")
         print_board(player_board, hide_ships=True)
-
-        player_guess = player_turn(player_board, previous_guesses, size)
-        if player_guess is None:
-            print(f"{Fore.LIGHTRED_EX}Game ended by player.")
-            break
-
-        guess_row, guess_col = player_guess
-        result = player_board[guess_row][guess_col]
-
-        if result == 'S':
-            print(f"{Fore.GREEN}Hit! You've hit a ship!")
-            player_board[guess_row][guess_col] = 'X'
-            if check_for_sunken_ships((guess_row, guess_col), ships):
-                print(f"{Fore.YELLOW}You've sunk a ship!")
-                ships_remaining -= 1
-        elif result == 'X':
-            print(f"{Fore.YELLOW}You've already hit this spot.")
-        else:
-            print(f"{Fore.CYAN}Miss.")
-            player_board[guess_row][guess_col] = 'X'
-
-        if ships_remaining == 0:
-            print(f"{Fore.GREEN}All ships sunk! You win!")
-
-if __name__ == "__main__":
-    board_size = 5  # Board size can be adjusted
-    num_ships = 3   # Number of ships can be adjusted
-    play_battleship(board_size, num_ships)
+        
+        player_guess = player_turn(player_board, previous_guesses, size
 
 
    
