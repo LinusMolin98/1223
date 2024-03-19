@@ -21,7 +21,13 @@ def print_board(board, hide_ships=True):
 
 def generate_board(size):
     """
-    Generates a square game board of the given size initialized with 'O'.
+    Generates a square game board of the given size initialized with 'O' for open water.
+    
+    Parameters:
+    - size: Integer, the size of the board (size x size).
+    
+    Returns:
+    - A 2D list representing the game board.
     """
     return [['O' for _ in range(size)] for _ in range(size)]
 
