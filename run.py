@@ -91,15 +91,13 @@ def player_turn(board, previous_guesses, size):
 
             guess_row, guess_col = map(int, user_input.split())
             if (guess_row, guess_col) in previous_guesses or not (0 <= guess_row < size and 0 <= guess_col < size):
-                print
-(f"{Fore.YELLOW}Invalid guess or already guessed. Try again.")
+                print (f"{Fore.YELLOW}Invalid guess or already guessed. Try again.")
                 continue
 
             previous_guesses.add((guess_row, guess_col))
             return guess_row, guess_col
         except ValueError:
-            print(f"{Fore.RED}Invalid input. 
-Please enter row and column numbers separated by a space.")
+            print(f"{Fore.RED}Invalid input. Please enter row and column numbers separated by a space.")
 
 
 def print_instructions(size):
