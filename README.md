@@ -132,7 +132,7 @@ This project did not use wireframes due to its nature as a CLI application.
 
 ### Bug Reports
 - **Resolved**: An issue where guesses outside the board boundaries caused errors. Added input validation to resolve.
-- **Unresolved**: Occasionally, the color output does not reset correctly on some terminals.
+- **Unresolved**: Occasionally, the color output does not reset correctly on some terminals. The code has some parts that does not appear to validate in pep8 not matter what i do, i dont understand whats needed to get it fixed and have tried everything. 
 
 ## Deployment
 This project is run locally. To start the game, clone the repository and run `python battleship.py` in your terminal, ensuring Python 3.x is installed.
